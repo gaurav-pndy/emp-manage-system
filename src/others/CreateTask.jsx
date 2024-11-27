@@ -1,0 +1,138 @@
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
+
+const CreateTask = () => {
+  const [userData, setUserData] = useContext(AuthContext);
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+  const [assignTo, setAssignTo] = useState("");
+  const [category, setCategory] = useState("");
+  const [newTask, setNewTask] = useState({});
+
+  function submitHandler(e) {
+    e.preventDefault();
+
+    // Create the task object directly
+    const task = {
+      title,
+      date,
+      category,
+      description,
+      active: false,
+      newTask: true,
+      completed: false,
+      failed: false,
+    };
+
+    // Update the employee's tasks with the new task
+    const updatedData = userData.map((elem) => {
+      if (elem.firstName === assignTo) {
+        return {
+          ...elem,
+          tasks: [...elem.tasks, task], // Add the new task to the array
+          taskCount: {
+            ...elem.taskCount,
+            newTask: elem.taskCount.newTask + 1, // Increment the new task count
+          },
+        };
+      }
+      return elem;
+    });
+
+    // Save the updated data in localStorage and context
+    localStorage.setItem("employees", JSON.stringify(updatedData));
+    setUserData(updatedData);
+
+    // Clear the form fields
+    setTitle("");
+    setDescription("");
+    setDate("");
+    setAssignTo("");
+    setCategory("");
+  }
+
+  return (
+    <>
+      <h1 className="mt-7 text-xl font-semibold">Create Task</h1>
+      <div className=" p-4 md:p-5 bg-[#1C1C1C] mt-2 rounded">
+        <form
+          onSubmit={(e) => {
+            submitHandler(e);
+          }}
+          className=" flex flex-wrap w-full justify-between items-start flex-col md:flex-row"
+        >
+          <div className=" w-full md:w-1/2">
+            <div>
+              <h3 className="font-semibold text-gray-300 mb-0.5">Task Title</h3>
+              <input
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+                className="text-sm py-1 px-2 w-full md:w-4/5 h-10 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
+                type="text"
+              />
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-300 mb-0.5">Date</h3>
+              <input
+                value={date}
+                onChange={(e) => {
+                  setDate(e.target.value);
+                }}
+                className="text-sm py-1 px-2 w-full md:w-4/5 h-10 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4 "
+                type="date"
+              />
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-300 mb-0.5">Assign to</h3>
+              <input
+                value={assignTo}
+                onChange={(e) => {
+                  setAssignTo(e.target.value);
+                }}
+                className="text-sm py-1 px-2 w-full md:w-4/5 h-10 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
+                type="text"
+              />
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-300 mb-0.5">Category</h3>
+              <input
+                value={category}
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+                className="text-sm py-1 px-2 w-full md:w-4/5 h-10 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="w-full md:w-2/5 flex flex-col items-start">
+            <h3 className="font-semibold text-gray-300 mb-0.5">Description</h3>
+            <textarea
+              value={description}
+              onChange={(e) => {
+                setDescription(e.target.value);
+              }}
+              className="w-full h-32 md:h-full text-sm py-2 px-4 rounded outline-none bg-transparent border-[1px] border-gray-400"
+              name=""
+              id=""
+              rows="11"
+            ></textarea>
+            <button
+              id="createTaskBtn"
+              className=" px-5 py-2 rounded text-sm mt-4 w-full "
+            >
+              Create Task
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
+  );
+};
+
+export default CreateTask;
