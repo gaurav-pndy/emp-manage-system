@@ -4,11 +4,11 @@
 
 ### Features
 
-**Frontend Framework:** React for building an interactive and dynamic user interface.
-**Build Tool:** Vite for fast and efficient development and builds.
-**Styling:** Tailwind CSS for a utility-first, responsive, and customizable design system.
-**CSS Processing:** PostCSS for extending CSS capabilities and enabling advanced features.
-**Data Storage:** Uses localStorage to persist employee data across sessions.
+<h5>Frontend Framework:</h5> React for building an interactive and dynamic user interface.
+Build Tool: Vite for fast and efficient development and builds.
+Styling: Tailwind CSS for a utility-first, responsive, and customizable design system.
+CSS Processing: PostCSS for extending CSS capabilities and enabling advanced features.
+Data Storage:Uses localStorage to persist employee data across sessions.
 
 ### Installation and Usage
 
