@@ -4,7 +4,7 @@
 
 ### Features
 
-<h5>Frontend Framework:</h5> React for building an interactive and dynamic user interface.
+<strong>Frontend Framework:</strong> React for building an interactive and dynamic user interface.
 Build Tool: Vite for fast and efficient development and builds.
 Styling: Tailwind CSS for a utility-first, responsive, and customizable design system.
 CSS Processing: PostCSS for extending CSS capabilities and enabling advanced features.
