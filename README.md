@@ -11,6 +11,7 @@
 <strong> Data Storage: </strong> Uses localStorage to persist employee data across sessions. <br>
 <strong> Admin Permissions: </strong> Only admins can add new employees, ensuring secure and controlled data entry. <br>
 <strong> Task Management: </strong> Assign and track employee tasks with status updates (e.g., active, completed, or failed).<br>
+<strong> Responsive Design: </strong>  Adapts seamlessly to various screen sizes, ensuring usability on desktops, tablets, and mobiles. <br>
 
 ## Installation and Usage
 
@@ -28,8 +29,23 @@ npm install
 npm run dev
 ```
 
+## How to Use
+
+<strong> Admin Login: </strong> Log in as an admin to access employee management tools. <br>
+<strong> Add Employee: </strong> Fill out details in the "Add Employee" section to create a profile. <br>
+<strong> Assign Tasks: </strong> Allocate tasks with deadlines and monitor their statuses. <br>
+<strong> Employee Dashboard: </strong> Employees can view, update, and complete tasks. <br>
+
 **Admin Credentials:** <br>
 <strong> Email: </strong> admin@me.com <br>
 <strong> Password: </strong> 123 <br>
+
+## Tech Stack
+
+<strong> React: </strong> Framework for the user interface. <br>
+<strong> Vite: </strong> Build tool for fast development. <br>
+<strong> Tailwind CSS: </strong> Provides clean, customizable styles. <br>
+<strong> PostCSS: </strong>Enhances CSS for advanced capabilities. <br>
+<strong> localStorage: </strong> Persists employee and task data across sessions. <br>
 
 Open your browser at the provided localhost address to view the application, or got to: emp-manage-system-nu.vercel.app
