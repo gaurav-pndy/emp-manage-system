@@ -32,4 +32,4 @@ npm run dev
 <strong> Email: </strong> admin@me.com <br>
 <strong> Password: </strong> 123 <br>
 
-Open your browser at the provided localhost address to view the application.
+Open your browser at the provided localhost address to view the application, or got to: emp-manage-system-nu.vercel.app
