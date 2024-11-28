@@ -59,7 +59,7 @@ const CreateEmp = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="border text-sm border-white md:text-lg  px-3 py-1 mr-5 rounded hover:text-black hover:bg-gray-300 transition-all duration-300">
+        <button className="border text-sm border-white md:text-lg  px-3 py-1 md:mr-5 rounded hover:text-black hover:bg-gray-300 transition-all duration-300">
           + Add New Employee
         </button>
       </DialogTrigger>

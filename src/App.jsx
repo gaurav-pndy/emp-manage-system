@@ -1,3 +1,4 @@
+"use client";
 import React, { useContext, useEffect, useState } from "react";
 import Login from "./comps/Auth/Login";
 import EmpDashboard from "./comps/Dashboard/EmpDashboard";
@@ -5,11 +6,15 @@ import AdmDashboard from "./comps/Dashboard/AdmDashboard";
 
 import { AuthContext } from "./context/AuthProvider";
 
+import { useToast } from "@/hooks/use-toast";
+
 const App = () => {
   // localStorage.clear();
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
   const [userData, setUserData] = useContext(AuthContext);
+
+  const { toast } = useToast();
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
@@ -57,9 +62,13 @@ const App = () => {
           "loggedInUser",
           JSON.stringify({ role: "employee", data: employee })
         );
+      } else {
+        toast({
+          title: "Invalid Credentials !",
+          description: "Either email or password is wrong. Please retry.",
+          className: "bg-red-800",
+        });
       }
-    } else {
-      alert("Invalid credentials");
     }
   }
 

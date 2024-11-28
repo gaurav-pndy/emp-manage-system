@@ -16,12 +16,12 @@ const Header = ({ data }) => {
         </span>
       </h1>
 
-      <div className="flex">
+      <div className="flex flex-col-reverse gap-3 md:flex-row items-end ">
         {!data ? <CreateEmp /> : null}
 
         <button
           onClick={handleLogOut}
-          className="bg-red-700 rounded text-sm md:text-lg font-medium px-3 py-1 hover:bg-red-800 transition-all duration-300"
+          className="bg-red-700 rounded text-sm md:text-lg font-medium px-3 py-1 hover:bg-red-800 transition-all duration-300 w-fit "
         >
           Log Out
         </button>
