@@ -32,7 +32,7 @@ npm run dev
 ## How to Use
 
 <strong> Admin Login: </strong> Log in as an admin to access employee management tools. <br>
-<strong> Add Employee: </strong> Fill out details in the "Add Employee" section to create a profile. <br>
+<strong> Add Employee: </strong> Fill out details in the "Add New Employee" section to create a profile. <br>
 <strong> Assign Tasks: </strong> Allocate tasks with deadlines and monitor their statuses. <br>
 <strong> Employee Dashboard: </strong> Employees can view, update, and complete tasks. <br>
 
