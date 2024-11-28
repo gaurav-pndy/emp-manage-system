@@ -1,15 +1,18 @@
+"use client";
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
+import { useToast } from "@/hooks/use-toast";
 
 const CreateTask = () => {
   const [userData, setUserData] = useContext(AuthContext);
+
+  const { toast } = useToast();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [assignTo, setAssignTo] = useState("");
   const [category, setCategory] = useState("");
-  const [newTask, setNewTask] = useState({});
 
   function submitHandler(e) {
     e.preventDefault();
@@ -56,6 +59,20 @@ const CreateTask = () => {
         <form
           onSubmit={(e) => {
             submitHandler(e);
+            const userExists = userData.some(
+              (emp) => emp.firstName === assignTo
+            );
+            toast({
+              title: `${
+                userExists
+                  ? "New Task Assigned Successfully !"
+                  : "Task Assignment Failed !"
+              }`,
+              description: `${
+                userExists ? `Assigned to: ${assignTo}` : "No such User Exists"
+              }`,
+              className: `${userExists ? "bg-yellow-800 " : "bg-red-800"}`,
+            });
           }}
           className=" flex flex-wrap w-full justify-between items-start flex-col md:flex-row"
         >
@@ -63,6 +80,7 @@ const CreateTask = () => {
             <div>
               <h3 className="font-semibold text-gray-300 mb-0.5">Task Title</h3>
               <input
+                required
                 value={title}
                 onChange={(e) => {
                   setTitle(e.target.value);
@@ -75,6 +93,7 @@ const CreateTask = () => {
             <div>
               <h3 className="font-semibold text-gray-300 mb-0.5">Date</h3>
               <input
+                required
                 value={date}
                 onChange={(e) => {
                   setDate(e.target.value);
@@ -86,6 +105,7 @@ const CreateTask = () => {
             <div>
               <h3 className="font-semibold text-gray-300 mb-0.5">Assign to</h3>
               <input
+                required
                 value={assignTo}
                 onChange={(e) => {
                   setAssignTo(e.target.value);
@@ -97,6 +117,7 @@ const CreateTask = () => {
             <div>
               <h3 className="font-semibold text-gray-300 mb-0.5">Category</h3>
               <input
+                required
                 value={category}
                 onChange={(e) => {
                   setCategory(e.target.value);

@@ -79,35 +79,41 @@ const AllTasks = () => {
                 >
                   {expandedEmpIdx === idx && (
                     <div>
-                      {emp.tasks.map((task, idx2) => {
-                        return (
-                          <div
-                            key={idx2}
-                            className="flex px-2 md:px-12 mx-1 md:mx-2 border border-gray-700 justify-around mb-2 rounded bg-[#282323] text-[10px] md:text-sm"
-                          >
-                            <h2 className=" py-2 md:pl-7 w-1/3">
-                              <strong>Task:</strong> &nbsp;
-                              {task.title}{" "}
-                            </h2>
-                            <h2 className=" py-2 w-1/3 text-center ">
-                              <strong> Due Date: </strong> &nbsp;
-                              {task.date}
-                            </h2>
-                            <h2 className=" py-2 w-1/3 text-right ">
-                              <strong>Status:</strong> &nbsp;{" "}
-                              {task.newTask
-                                ? "New Task"
-                                : task.active
-                                ? "Active"
-                                : task.completed
-                                ? "Completed"
-                                : task.failed
-                                ? "Failed"
-                                : "Error"}
-                            </h2>
-                          </div>
-                        );
-                      })}
+                      {emp.tasks.length !== 0 ? (
+                        emp.tasks.map((task, idx2) => {
+                          return (
+                            <div
+                              key={idx2}
+                              className="flex px-2 md:px-12 mx-1 md:mx-2 border border-gray-700 justify-around mb-2 rounded bg-[#282323] text-[10px] md:text-sm"
+                            >
+                              <h2 className=" py-2 md:pl-7 w-1/3">
+                                <strong>Task:</strong> &nbsp;
+                                {task.title}{" "}
+                              </h2>
+                              <h2 className=" py-2 w-1/3 text-center ">
+                                <strong> Due Date: </strong> &nbsp;
+                                {task.date}
+                              </h2>
+                              <h2 className=" py-2 w-1/3 text-right ">
+                                <strong>Status:</strong> &nbsp;{" "}
+                                {task.newTask
+                                  ? "New Task"
+                                  : task.active
+                                  ? "Active"
+                                  : task.completed
+                                  ? "Completed"
+                                  : task.failed
+                                  ? "Failed"
+                                  : "Error"}
+                              </h2>
+                            </div>
+                          );
+                        })
+                      ) : (
+                        <div className=" px-2 md:px-12 mx-1 md:mx-2 border border-gray-700 mb-2 rounded bg-[#282323] text-[10px] md:text-sm">
+                          <h2 className=" py-2 text-center ">No Tasks yet</h2>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

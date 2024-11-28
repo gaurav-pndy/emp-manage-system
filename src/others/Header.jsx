@@ -1,4 +1,5 @@
 import React from "react";
+import CreateEmp from "./CreateEmp";
 
 const Header = ({ data }) => {
   function handleLogOut() {
@@ -14,12 +15,17 @@ const Header = ({ data }) => {
           {data ? data.firstName : "Suresh"} 👋
         </span>
       </h1>
-      <button
-        onClick={handleLogOut}
-        className="bg-red-600 rounded text-lg font-medium px-3 py-1"
-      >
-        Log Out
-      </button>
+
+      <div className="flex">
+        {!data ? <CreateEmp /> : null}
+
+        <button
+          onClick={handleLogOut}
+          className="bg-red-700 rounded text-sm md:text-lg font-medium px-3 py-1 hover:bg-red-800 transition-all duration-300"
+        >
+          Log Out
+        </button>
+      </div>
     </div>
   );
 };
