@@ -30,10 +30,8 @@ const App = () => {
         ...updatedData,
       };
 
-      // Update employees in localStorage
       localStorage.setItem("employees", JSON.stringify(employees));
 
-      // If this employee is the logged-in user, update loggedInUser as well
       const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
       if (loggedInUser && loggedInUser.data.id === employeeId) {
         localStorage.setItem(

@@ -7,11 +7,6 @@ const EmpDashboard = ({ data, onUpdate }) => {
   // console.log(data);
   const [data2, setData2] = useState(data);
 
-  // useEffect(() => {
-  //   // Save to localStorage whenever data changes
-  //   localStorage.setItem("employees", JSON.stringify(data2));
-  // }, [data2]);
-
   const updateTask = (taskIndex, taskType) => {
     setData2((prevData) => {
       const updatedTasks = [...prevData.tasks];
@@ -35,8 +30,6 @@ const EmpDashboard = ({ data, onUpdate }) => {
         newTaskCount.newTask -= 1;
         newTaskCount.active += 1;
       }
-
-      // Update task count
 
       const updatedData = {
         tasks: updatedTasks,

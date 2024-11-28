@@ -14,7 +14,6 @@ const CreateTask = () => {
   function submitHandler(e) {
     e.preventDefault();
 
-    // Create the task object directly
     const task = {
       title,
       date,
@@ -26,26 +25,23 @@ const CreateTask = () => {
       failed: false,
     };
 
-    // Update the employee's tasks with the new task
     const updatedData = userData.map((elem) => {
       if (elem.firstName === assignTo) {
         return {
           ...elem,
-          tasks: [...elem.tasks, task], // Add the new task to the array
+          tasks: [...elem.tasks, task],
           taskCount: {
             ...elem.taskCount,
-            newTask: elem.taskCount.newTask + 1, // Increment the new task count
+            newTask: elem.taskCount.newTask + 1,
           },
         };
       }
       return elem;
     });
 
-    // Save the updated data in localStorage and context
     localStorage.setItem("employees", JSON.stringify(updatedData));
     setUserData(updatedData);
 
-    // Clear the form fields
     setTitle("");
     setDescription("");
     setDate("");
