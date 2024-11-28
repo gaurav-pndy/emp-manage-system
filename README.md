@@ -48,4 +48,4 @@ npm run dev
 - <strong> PostCSS: </strong>Enhances CSS for advanced capabilities. <br>
 - <strong> localStorage: </strong> Persists employee and task data across sessions. <br>
 
-Open your browser at the provided localhost address to view the application, or [Click Here}(emp-manage-system-nu.vercel.app)
+Open your browser at the provided localhost address to view the application, or Go to: ([emp-manage-system-nu.vercel.app](https://emp-manage-system-nu.vercel.app/))
