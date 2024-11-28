@@ -28,8 +28,8 @@ npm install
 npm run dev
 ```
 
-**Admin Credentials:**
-<strong> Email: </strong> admin@me.com
-<strong> Password: </strong> 123
+**Admin Credentials:** <br>
+<strong> Email: </strong> admin@me.com <br>
+<strong> Password: </strong> 123 <br>
 
 Open your browser at the provided localhost address to view the application.
